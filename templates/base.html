@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html theme="dark" showbanner="true" hasbanner="true">
+<head>
+    <link href="/static/css/fontawesome.css" rel="stylesheet">{% comment %}路径为:static/fontawesome/css/fontawesome.css{% endcomment %}
+    <link href="/static/css/brands.css" rel="stylesheet">
+    <link href="/static/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="utf-8">
+
+
+    <title>My Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="这是浅笑笑笑的个人博客">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="My Blog">
+    <meta property="og:url" content="https://dajavv.github.io/">
+    <meta property="og:site_name" content="My Blog">
+    <meta property="og:description" content="这是浅笑笑笑的个人博客">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="article:author" content="浅笑笑笑">
+    <meta property="article:tag" content="博客">
+    <meta name="twitter:card" content="summary">
+
+
+    <link rel="shortcut icon" href="https://img1.8jppeg.com/images/64acb6103389e89b4a1690f8.png">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+    <meta name="generator" content="Hexo 6.3.0">
+</head>
+
+<body>
+
+
+{% include 'banner.html' %}
+
+
+<div id="main-grid" class="shadow   ">
+    {% include 'head.html' %}
+    {% include 'right.html' %}
+    {% block main %} <!--与app中的index相连-->
+    {% endblock %}
+    {% include 'footer.html' %}
+
+    <div class="back-to-top-wrapper"><!--回到顶部按键-->
+        <button id="back-to-top-btn" class="back-to-top-btn" onclick="topFunction()">
+            <span class="material-symbols-rounded">keyboard_arrow_up</span>
+        </button>
+    </div>
+
+
+</div>
+
+
+<script src="/static/bundle.js"></script>{% comment %}背景白天黑夜变换{% endcomment %}
+<script>
+    let dropdownBtn = document.getElementById("nav-menu-btn");/*下拉按键*/
+    let dropdownEle = document.getElementById("nav-dropdown");
+    dropdownBtn.onclick = function () {/*菜单栏点击*/
+        dropdownEle.classList.toggle("hidden");
+    }
+    ;
+
+    function topFunction() {
+        window.scroll({top: 0, behavior: 'smooth'});
+    }
+
+    let btn = document.getElementById('back-to-top-btn');
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.style.opacity = 1;
+        } else {
+            btn.style.opacity = 0;
+        }
+    }
+
+    window.onscroll = function () {//滚动就会触发
+        scrollFunction();
+    }
+</script>
+</body>
+</html>

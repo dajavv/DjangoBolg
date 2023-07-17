@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load mymarkdown %} {% comment %}引入过滤器{% endcomment %}
+{% block title %}详情页面{% endblock %}
+
+{% block main %}
+    <div id="content-body">
+
+        <!--post.photos为一个数组，赋值给cover-->
+        <!--文章-->
+        <article id="post-原神小助手" class="h-entry article article-type-post" itemprop="blogPost" itemscope=""
+                 itemtype="https://schema.org/BlogPosting">
+
+
+            <div class="article-inner">
+                <div class="article-main">
+                    <header class="article-header">
+
+                        <div class="main-title-bar"><!--主页中，文章选项标题，girl布局等分3份-->
+                            <div class="main-title-dot"></div>
+
+
+                            <h1 class="p-name article-title" itemprop="headline name">
+
+                                {{ post_obj.title }}
+                            </h1>
+
+
+                        </div>
+
+                        <div class="meta-info-bar">
+                            <div class="meta-info">
+                                <time class="dt-published" datetime="2023-07-11T13:26:44.000Z" itemprop="datePublished">
+                                    {{ post_obj.created|date:'Y-m-d' }}
+                                </time>
+                            </div>
+                            <div class="need-seperator meta-info">
+                                <div class="meta-cate-flex">
+
+                                    <a class="meta-cate-link"
+                                       href="/categories/%E9%A1%B9%E7%9B%AE/">{{ post_obj.category.cname }}</a>
+
+                                </div>
+                                <!--tag-->
+                            </div>
+                            <div class="wordcount need-seperator meta-info">
+                                {{ post_obj.words }} 字<!--获取文章中的文字数量，字数-->
+                            </div>
+                        </div>
+                        <!--文章选项中的tag-->
+                        <ul class="article-tag-list" itemprop="keywords">
+                            {% for tag in post_obj.tag.all %}
+                                <li class="article-tag-list-item"><a class="article-tag-list-link"
+                                                                     href="/tags/github/"
+                                                                     rel="tag">{{ tag.tname }}</a></li>
+
+                            {% endfor %}
+                            {% comment %}                    <li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/"
+                                                                 rel="tag">python</a></li>
+                            <li class="article-tag-list-item"><a class="article-tag-list-link"
+                                                                 href="/tags/%E5%8E%9F%E7%A5%9E/" rel="tag">原神</a>
+                            </li>
+                            <li class="article-tag-list-item"><a class="article-tag-list-link"
+                                                                 href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a>
+                            </li>{% endcomment %}
+                        </ul>
+
+
+                    </header>
+                    <div class="e-content article-entry" itemprop="articleBody">{% comment %}内容文字{% endcomment %}
+                        {#                         {{ article.content|markdownx|safe }}#}
+                        {{ post_obj.content|md|safe }}{% comment %}md过滤器{% endcomment %}
+{% comment %}
+                        <link rel="stylesheet" type="text/css"
+                              href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css">
+                        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2>
+                        <ul>
+                            <li>
+                                基于图像识别和模拟按键的多功能原神自动辅助操作,包括自动战斗,自动刷秘境,自动刷大世界材料。
+                            </li>
+                        </ul>
+                        <h3 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h3>
+                        <ul>
+                            <li>Github项目链接[genshin_impact_assistant](<a target="_blank" rel="noopener"
+                                                                            href="https://github.com/infstellar/genshin_impact_assistant]">https://github.com/infstellar/genshin_impact_assistant]</a>
+                            </li>
+                            <li>官方项目中文文档[<a target="_blank" rel="noopener"
+                                                    href="https://genshinimpactassistant.github.io/GIA-Document/#/]">https://genshinimpactassistant.github.io/GIA-Document/#/]</a>
+                            </li>
+                        </ul>
+                        <!--开启detail详细模式,并且没有设置摘要属性，显示全部内容-->
+{% endcomment %}
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <nav id="article-nav"><!--文章底部的左右跳转导航-->
+                <a class="article-nav-btn left  disabled ">
+                    <i class="fa-solid fa-angle-left"></i>
+                    <p class="title-text">
+
+                    </p>
+                </a>
+                <a class="article-nav-btn right " href="/2023/07/11/%E8%83%A1%E6%A1%83%E5%B7%A5%E5%85%B7%E7%AE%B1/"
+                   title="胡桃工具箱">
+
+                    <p class="title-text">
+
+                        胡桃工具箱
+
+                    </p>
+                    <i class="fa-solid fa-angle-right"></i><!--向右-->
+                </a>
+            </nav>
+
+            <!--导入组件-->
+
+        </article>
+
+
+    </div>
+
+
+
+{% endblock %}

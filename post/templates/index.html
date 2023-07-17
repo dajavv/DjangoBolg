@@ -1,0 +1,863 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div id="content-body">
+
+
+        <!--post.photos为一个数组，赋值给cover-->
+        <!--文章-->
+        {% for post in postList %}
+            {#            <article id="post-原神小助手" class="h-entry article article-type-post" itemprop="blogPost" itemscope=""#}
+            {#                     itemtype="https://schema.org/BlogPosting">#}
+
+            <div class="article-inner">
+                <div class="article-main">
+                    <header class="article-header">
+
+                        <div class="main-title-bar"><!--主页中，文章选项标题，girl布局等分3份-->
+                            <div class="main-title-dot"></div>
+
+
+                            <h1 itemprop="name">
+                                <a class="p-name article-title"
+                                   href="post/{{ post.id }}">{{ post.title }}</a>
+                            </h1>
+
+
+                        </div>
+
+                        <div class="meta-info-bar">
+                            <div class="meta-info">
+                                <time class="dt-published" datetime="2023-07-11T13:26:44.000Z"
+                                      itemprop="datePublished">
+                                    {{ post.created|date:'Y-m-d ' }}
+                                </time>
+                            </div>
+                            <div class="need-seperator meta-info">
+                                <div class="meta-cate-flex">
+
+                                    <a class="meta-cate-link"
+                                       href="/categories/%E9%A1%B9%E7%9B%AE/">{{ post.category.cname }}</a>
+
+                                </div>
+                                <!--tag-->
+                            </div>
+                            <div class="wordcount need-seperator meta-info">
+                                {{ post.words }} 字<!--获取文章中的文字数量，字数-->
+                            </div>
+                        </div>
+                        <!--文章选项中的tag-->
+                        <ul class="article-tag-list" itemprop="keywords">
+                            {% for tag in post.tag.all %}
+                                <li class="article-tag-list-item"><a class="article-tag-list-link"
+                                                                     href="/tags/github/"
+                                                                     rel="tag">{{ tag.tname }}</a></li>
+
+                            {% endfor %}
+
+
+                            {% comment %}                            <li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/"
+                                                                 rel="tag">python</a></li>
+                            <li class="article-tag-list-item"><a class="article-tag-list-link"
+                                                                 href="/tags/%E5%8E%9F%E7%A5%9E/" rel="tag">原神</a>
+                            </li>
+                            <li class="article-tag-list-item"><a class="article-tag-list-link"
+                                                                 href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a>
+                            </li>{% endcomment %}
+                        </ul>
+
+
+                    </header>
+                    <div class="e-content article-entry" itemprop="articleBody">
+                        <!--如果没有excerpt则渲染内容前500字-->
+                        <div class="truncate-text">
+                            {{ post.desc }}
+                            <!--内容预览-->
+                        </div>
+
+                    </div>
+
+
+                </div>
+                {% if post.photos != 'none' %}
+                    <a class="right-panel  with-pic  "
+                       style="background-image: url({{ post.photos }})"{% comment %}这里会插入背景图{% endcomment %}
+                       href="post/{{ post.id }}"><!--构造文章url,生成一个有图片或无图片的选项卡，
+    在开头会判断该数据是否为一个数组，获取数组第一个元素作为背景图片的url-->
+                        <!--判断有没有封面，这里会添加进入箭头-->
+                        <div class="overlay">
+                            <i class="fa-solid fa-angle-right with-pic"></i>
+                        </div>
+                    </a>
+                {% else %}
+                    <a class="right-panel  non-pic  "
+                       href="post/{{ post.id }}"><!--构造文章url,生成一个有图片或无图片的选项卡，
+    在开头会判断该数据是否为一个数组，获取数组第一个元素作为背景图片的url-->
+                        <!--没有封面，直接插入箭头-->
+                        <i class="fa-solid fa-angle-right non-pic"></i>
+
+                    </a>
+                {% endif %}
+                <!--普通选项样式-->
+                <!--配置文件主题是否为detail详细，并且判断是否在页面中-->
+
+
+            </div>
+
+            {#            </article>#}
+        {% endfor %}
+
+
+        {% comment %}
+
+        <!--post.photos为一个数组，赋值给cover-->
+        <!--文章-->
+        <article id="post-胡桃工具箱" class="h-entry article article-type-post" itemprop="blogPost" itemscope=""
+                 itemtype="https://schema.org/BlogPosting">
+
+            <div class="article-inner">
+                <div class="article-main">
+                    <header class="article-header">
+
+                        <div class="main-title-bar"><!--主页中，文章选项标题，girl布局等分3份-->
+                            <div class="main-title-dot"></div>
+
+
+                            <h1 itemprop="name">
+                                <a class="p-name article-title"
+                                   href="/2023/07/11/%E8%83%A1%E6%A1%83%E5%B7%A5%E5%85%B7%E7%AE%B1/">胡桃工具箱</a>
+                            </h1>
+
+
+                        </div>
+
+                        <div class="meta-info-bar">
+                            <div class="meta-info">
+                                <time class="dt-published" datetime="2023-07-11T13:26:44.000Z" itemprop="datePublished">
+                                    2023-07-11
+                                </time>
+                            </div>
+                            <div class="need-seperator meta-info">
+                                <div class="meta-cate-flex">
+
+                                    <a class="meta-cate-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a>
+
+                                </div>
+                                <!--tag-->
+                            </div>
+                            <div class="wordcount need-seperator meta-info">
+                                128 字<!--获取文章中的文字数量，字数-->
+                            </div>
+                        </div>
+                        <!--文章选项中的tag-->
+                        <ul class="article-tag-list" itemprop="keywords">
+                            <li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/"
+                                                                 rel="tag">github</a></li>
+                            <li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/"
+                                                                 rel="tag">python</a></li>
+                            <li class="article-tag-list-item"><a class="article-tag-list-link"
+                                                                 href="/tags/%E5%8E%9F%E7%A5%9E/" rel="tag">原神</a>
+                            </li>
+                            <li class="article-tag-list-item"><a class="article-tag-list-link"
+                                                                 href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a>
+                            </li>
+                        </ul>
+
+
+                    </header>
+                    <div class="e-content article-entry" itemprop="articleBody">
+                        <!--如果没有excerpt则渲染内容前500字-->
+                        <div class="truncate-text">
+
+                            简介
+                            胡桃工具箱是一个 Windows 平台的开源的原神工具箱，旨在帮助玩家获得更好的游戏体验；
+                            它是对官方移动端工具的一种非破坏性功能扩展，为不习惯在移动端进行原神游戏的 PC 玩家提供一个在
+                            Windows 平台下获得接近移动端功能权利的途径
+
+                            项目地址
+                            Github项目链接[https://github.com/DGP-Studio/Snap.Hutao]
+                            官方项目中文文档[https://hut.ao/zh/]
+
+                            <!--内容预览-->
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <!--普通选项样式-->
+                <!--配置文件主题是否为detail详细，并且判断是否在页面中-->
+                <a class="right-panel  with-pic  "
+                   style="background-image: url(https://img1.8jppeg.com/images/64aecab33389e89b4a2a7c41.jpg)"
+                   href="/2023/07/11/%E8%83%A1%E6%A1%83%E5%B7%A5%E5%85%B7%E7%AE%B1/"><!--构造文章url,生成一个有图片或无图片的选项卡，
+    在开头会判断该数据是否为一个数组，获取数组第一个元素作为背景图片的url-->
+                    <!--判断有没有封面，这里会添加进入箭头-->
+                    <div class="overlay">
+                        <i class="fa-solid fa-angle-right with-pic"></i>
+                    </div>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!--post.photos为一个数组，赋值给cover-->
+        <!--文章-->
+        <article id="post-makdown的书写(三)" class="h-entry article article-type-post" itemprop="blogPost" itemscope=""
+                 itemtype="https://schema.org/BlogPosting">
+
+            <div class="article-inner">
+                <div class="article-main">
+                    <header class="article-header">
+
+                        <div class="main-title-bar"><!--主页中，文章选项标题，girl布局等分3份-->
+                            <div class="main-title-dot"></div>
+
+
+                            <h1 itemprop="name">
+                                <a class="p-name article-title"
+                                   href="/2023/07/11/makdown%E7%9A%84%E4%B9%A6%E5%86%99(%E4%B8%89)/">makdown的书写(三)</a>
+                            </h1>
+
+
+                        </div>
+
+                        <div class="meta-info-bar">
+                            <div class="meta-info">
+                                <time class="dt-published" datetime="2023-07-11T10:53:45.000Z" itemprop="datePublished">
+                                    2023-07-11
+                                </time>
+                            </div>
+                            <div class="need-seperator meta-info">
+                                <div class="meta-cate-flex">
+
+                                    <a class="meta-cate-link"
+                                       href="/categories/md%E7%9A%84%E4%B9%A6%E5%86%99/">md的书写</a>
+
+                                </div>
+                                <!--tag-->
+                            </div>
+                            <div class="wordcount need-seperator meta-info">
+                                17 字<!--获取文章中的文字数量，字数-->
+                            </div>
+                        </div>
+
+
+                    </header>
+                    <div class="e-content article-entry" itemprop="articleBody">
+                        <!--如果没有excerpt则渲染内容前500字-->
+                        <div class="truncate-text">
+                            ![图片描述](https://img1.8jppeg.com/images/64ad3b383389e89b4a50b8af.jpg)
+
+
+                            画廊
+
+
+                            <!--内容预览-->
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <!--普通选项样式-->
+                <!--配置文件主题是否为detail详细，并且判断是否在页面中-->
+                <a class="right-panel  non-pic  " href="/2023/07/11/makdown%E7%9A%84%E4%B9%A6%E5%86%99(%E4%B8%89)/"><!--构造文章url,生成一个有图片或无图片的选项卡，
+    在开头会判断该数据是否为一个数组，获取数组第一个元素作为背景图片的url-->
+                    <!--没有封面，直接插入箭头-->
+                    <i class="fa-solid fa-angle-right non-pic"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!--post.photos为一个数组，赋值给cover-->
+        <!--文章-->
+        <article id="post-测试" class="h-entry article article-type-post" itemprop="blogPost" itemscope=""
+                 itemtype="https://schema.org/BlogPosting">
+
+            <div class="article-inner">
+                <div class="article-main">
+                    <header class="article-header">
+
+                        <div class="main-title-bar"><!--主页中，文章选项标题，girl布局等分3份-->
+                            <div class="main-title-dot"></div>
+
+
+                            <h1 itemprop="name">
+                                <a class="p-name article-title" href="/2023/07/11/%E6%B5%8B%E8%AF%95/">测试</a>
+                            </h1>
+
+
+                        </div>
+
+                        <div class="meta-info-bar">
+                            <div class="meta-info">
+                                <time class="dt-published" datetime="2023-07-11T10:48:20.000Z" itemprop="datePublished">
+                                    2023-07-11
+                                </time>
+                            </div>
+                            <div class="need-seperator meta-info">
+                                <div class="meta-cate-flex">
+
+                                    <a class="meta-cate-link" href="/categories/test/">test</a>
+
+                                </div>
+                                <!--tag-->
+                            </div>
+                            <div class="wordcount need-seperator meta-info">
+                                0 字<!--获取文章中的文字数量，字数-->
+                            </div>
+                        </div>
+
+
+                    </header>
+                    <div class="e-content article-entry" itemprop="articleBody">
+                        <!--如果没有excerpt则渲染内容前500字-->
+                        <div class="truncate-text">
+                            <!--内容预览-->
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <!--普通选项样式-->
+                <!--配置文件主题是否为detail详细，并且判断是否在页面中-->
+                <a class="right-panel  non-pic  " href="/2023/07/11/%E6%B5%8B%E8%AF%95/"><!--构造文章url,生成一个有图片或无图片的选项卡，
+    在开头会判断该数据是否为一个数组，获取数组第一个元素作为背景图片的url-->
+                    <!--没有封面，直接插入箭头-->
+                    <i class="fa-solid fa-angle-right non-pic"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!--post.photos为一个数组，赋值给cover-->
+        <!--文章-->
+        <article id="post-文章的头部属性" class="h-entry article article-type-post" itemprop="blogPost" itemscope=""
+                 itemtype="https://schema.org/BlogPosting">
+
+            <div class="article-inner">
+                <div class="article-main">
+                    <header class="article-header">
+
+                        <div class="main-title-bar"><!--主页中，文章选项标题，girl布局等分3份-->
+                            <div class="main-title-dot"></div>
+
+
+                            <h1 itemprop="name">
+                                <a class="p-name article-title"
+                                   href="/2023/07/11/%E6%96%87%E7%AB%A0%E7%9A%84%E5%A4%B4%E9%83%A8%E5%B1%9E%E6%80%A7/">文章的头部属性</a>
+                            </h1>
+
+
+                        </div>
+
+                        <div class="meta-info-bar">
+                            <div class="meta-info">
+                                <time class="dt-published" datetime="2023-07-10T16:25:12.000Z" itemprop="datePublished">
+                                    2023-07-11
+                                </time>
+                            </div>
+                            <div class="need-seperator meta-info">
+                                <div class="meta-cate-flex">
+
+                                    <a class="meta-cate-link" href="/categories/Hexo/">Hexo</a>
+
+                                </div>
+                                <!--tag-->
+                            </div>
+                            <div class="wordcount need-seperator meta-info">
+                                181 字<!--获取文章中的文字数量，字数-->
+                            </div>
+                        </div>
+
+
+                    </header>
+                    <div class="e-content article-entry" itemprop="articleBody">
+                        <!--判断excerpt是否有值-->
+                        md文件头部属性的属性传递<!--摘要-->
+
+                    </div>
+
+
+                </div>
+
+                <!--普通选项样式-->
+                <!--配置文件主题是否为detail详细，并且判断是否在页面中-->
+                <a class="right-panel  with-pic  "
+                   style="background-image: url(https://img1.8jppeg.com/images/64ad3b383389e89b4a50b8af.jpg)"
+                   href="/2023/07/11/%E6%96%87%E7%AB%A0%E7%9A%84%E5%A4%B4%E9%83%A8%E5%B1%9E%E6%80%A7/"><!--构造文章url,生成一个有图片或无图片的选项卡，
+    在开头会判断该数据是否为一个数组，获取数组第一个元素作为背景图片的url-->
+                    <!--判断有没有封面，这里会添加进入箭头-->
+                    <div class="overlay">
+                        <i class="fa-solid fa-angle-right with-pic"></i>
+                    </div>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!--post.photos为一个数组，赋值给cover-->
+        <!--文章-->
+        <article id="post-项目结构" class="h-entry article article-type-post" itemprop="blogPost" itemscope=""
+                 itemtype="https://schema.org/BlogPosting">
+
+            <div class="article-inner">
+                <div class="article-main">
+                    <header class="article-header">
+
+                        <div class="main-title-bar"><!--主页中，文章选项标题，girl布局等分3份-->
+                            <div class="main-title-dot"></div>
+
+
+                            <h1 itemprop="name">
+                                <a class="p-name article-title"
+                                   href="/2023/07/11/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/">项目结构</a>
+                            </h1>
+
+
+                        </div>
+
+                        <div class="meta-info-bar">
+                            <div class="meta-info">
+                                <time class="dt-published" datetime="2023-07-10T16:23:44.000Z" itemprop="datePublished">
+                                    2023-07-11
+                                </time>
+                            </div>
+                            <div class="need-seperator meta-info">
+                                <div class="meta-cate-flex">
+
+                                    <a class="meta-cate-link" href="/categories/Hexo/">Hexo</a>
+
+                                </div>
+                                <!--tag-->
+                            </div>
+                            <div class="wordcount need-seperator meta-info">
+                                263 字<!--获取文章中的文字数量，字数-->
+                            </div>
+                        </div>
+
+
+                    </header>
+                    <div class="e-content article-entry" itemprop="articleBody">
+                        <!--如果没有excerpt则渲染内容前500字-->
+                        <div class="truncate-text">
+                            Hexo二次开发文档中文文档 https://docs.kaitaku.xyz/github链接
+                            https://github.com/theme-shoka-x/hexo-theme-shokaX
+                            配置文件的数据传递theme. 主题配置文件
+                            post. 文章头部属性
+                            &lt;%- __('words') %&gt; 表示languages国际化目录中的文字
+                            项目结构ShokaX的目录结构(仅包含对开发重要的部分)如下:
+                            - .github # issues模板、CI工作流等存储位置
+                            - languages # 国际化文件储存位置
+                            - layout # 模板储存位置
+                            - scripts # hexo脚本储存位置
+                            - source # 前端文件位置
+                            - package.json # npm包json
+                            - tsconfig.json # typescript编译配置
+                            - .eslintrc.cjs # eslint配置
+                            - _config.yml # hexo主题配置文件
+                            - _images.yml # 图床配置文件
+                            layout目录(模版目录)采用了组件化开发，...<!--内容预览-->
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <!--普通选项样式-->
+                <!--配置文件主题是否为detail详细，并且判断是否在页面中-->
+                <a class="right-panel  non-pic  " href="/2023/07/11/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/"><!--构造文章url,生成一个有图片或无图片的选项卡，
+    在开头会判断该数据是否为一个数组，获取数组第一个元素作为背景图片的url-->
+                    <!--没有封面，直接插入箭头-->
+                    <i class="fa-solid fa-angle-right non-pic"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!--post.photos为一个数组，赋值给cover-->
+        <!--文章-->
+        <article id="post-创建文章与界面" class="h-entry article article-type-post" itemprop="blogPost" itemscope=""
+                 itemtype="https://schema.org/BlogPosting">
+
+            <div class="article-inner">
+                <div class="article-main">
+                    <header class="article-header">
+
+                        <div class="main-title-bar"><!--主页中，文章选项标题，girl布局等分3份-->
+                            <div class="main-title-dot"></div>
+
+
+                            <h1 itemprop="name">
+                                <a class="p-name article-title"
+                                   href="/2023/07/11/%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0%E4%B8%8E%E7%95%8C%E9%9D%A2/">创建文章与界面</a>
+                            </h1>
+
+
+                        </div>
+
+                        <div class="meta-info-bar">
+                            <div class="meta-info">
+                                <time class="dt-published" datetime="2023-07-10T16:22:22.000Z" itemprop="datePublished">
+                                    2023-07-11
+                                </time>
+                            </div>
+                            <div class="need-seperator meta-info">
+                                <div class="meta-cate-flex">
+
+                                    <a class="meta-cate-link" href="/categories/Hexo/">Hexo</a>
+
+                                </div>
+                                <!--tag-->
+                            </div>
+                            <div class="wordcount need-seperator meta-info">
+                                42 字<!--获取文章中的文字数量，字数-->
+                            </div>
+                        </div>
+
+
+                    </header>
+                    <div class="e-content article-entry" itemprop="articleBody">
+                        <!--如果没有excerpt则渲染内容前500字-->
+                        <div class="truncate-text">
+                            文章的创建hexo new "文章名称"
+                            hexo new '新文件夹'
+                            hexo list &lt;属性&gt; 查看
+                            hexo new page about 创建页面
+                            <!--内容预览-->
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <!--普通选项样式-->
+                <!--配置文件主题是否为detail详细，并且判断是否在页面中-->
+                <a class="right-panel  non-pic  "
+                   href="/2023/07/11/%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0%E4%B8%8E%E7%95%8C%E9%9D%A2/"><!--构造文章url,生成一个有图片或无图片的选项卡，
+    在开头会判断该数据是否为一个数组，获取数组第一个元素作为背景图片的url-->
+                    <!--没有封面，直接插入箭头-->
+                    <i class="fa-solid fa-angle-right non-pic"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!--post.photos为一个数组，赋值给cover-->
+        <!--文章-->
+        <article id="post-什么是.md文件" class="h-entry article article-type-post" itemprop="blogPost" itemscope=""
+                 itemtype="https://schema.org/BlogPosting">
+
+            <div class="article-inner">
+                <div class="article-main">
+                    <header class="article-header">
+
+                        <div class="main-title-bar"><!--主页中，文章选项标题，girl布局等分3份-->
+                            <div class="main-title-dot"></div>
+
+
+                            <h1 itemprop="name">
+                                <a class="p-name article-title"
+                                   href="/2023/07/09/%E4%BB%80%E4%B9%88%E6%98%AF.md%E6%96%87%E4%BB%B6/">什么是.md文件</a>
+                            </h1>
+
+
+                        </div>
+
+                        <div class="meta-info-bar">
+                            <div class="meta-info">
+                                <time class="dt-published" datetime="2023-07-08T21:00:34.000Z" itemprop="datePublished">
+                                    2023-07-09
+                                </time>
+                            </div>
+                            <div class="need-seperator meta-info">
+                                <div class="meta-cate-flex">
+
+                                    <a class="meta-cate-link"
+                                       href="/categories/md%E7%9A%84%E4%B9%A6%E5%86%99/">md的书写</a>
+
+                                </div>
+                                <!--tag-->
+                            </div>
+                            <div class="wordcount need-seperator meta-info">
+                                426 字<!--获取文章中的文字数量，字数-->
+                            </div>
+                        </div>
+
+
+                    </header>
+                    <div class="e-content article-entry" itemprop="articleBody">
+                        <!--如果没有excerpt则渲染内容前500字-->
+                        <div class="truncate-text">
+                            Markdown编辑器Markdown编辑在Hexo博客中，.md（Markdown）文件用于编写文章内容。Markdown是一种轻量级的标记语言，易于使用和阅读。
+                            要创建一个.md文件，请按照以下步骤操作：
+                            打开你的Hexo博客的源文件目录。默认情况下，源文件目录位于博客根目录下的”source”文件夹中。
+                            在”source”文件夹中，找到你想创建.md文件的所属目录。这可以是”_posts”目录或自定义的分类目录等。
+                            在所选目录中，创建一个新的文本文件，并将其命名为你想要的文件名，以”.md”作为文件扩展名。例如，你可以创建一个名为”hello-world.md”的文件。
+                            使用你喜欢的编辑器（例如文本编辑器或Markdown编辑器），打开新创建的.md文件。
+                            在.md文件中使用Markdown语法编写你的文章内容。你可以使用标题、段落、链接、图像、列表等Markdown语法来格式化文章。
+                            保存文件。
+                            在Hexo中，创建和编写.md文件是为了生成静态HTML页面。当你完成编辑和保存.md文件后，只需使用Hexo命令生成网站即可，Hexo将自动将.md文件转换为HTML页面，该页...
+                            <!--内容预览-->
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <!--普通选项样式-->
+                <!--配置文件主题是否为detail详细，并且判断是否在页面中-->
+                <a class="right-panel  non-pic  " href="/2023/07/09/%E4%BB%80%E4%B9%88%E6%98%AF.md%E6%96%87%E4%BB%B6/"><!--构造文章url,生成一个有图片或无图片的选项卡，
+    在开头会判断该数据是否为一个数组，获取数组第一个元素作为背景图片的url-->
+                    <!--没有封面，直接插入箭头-->
+                    <i class="fa-solid fa-angle-right non-pic"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!--post.photos为一个数组，赋值给cover-->
+        <!--文章-->
+        <article id="post-makdown的书写(二)" class="h-entry article article-type-post" itemprop="blogPost" itemscope=""
+                 itemtype="https://schema.org/BlogPosting">
+
+            <div class="article-inner">
+                <div class="article-main">
+                    <header class="article-header">
+
+                        <div class="main-title-bar"><!--主页中，文章选项标题，girl布局等分3份-->
+                            <div class="main-title-dot"></div>
+
+
+                            <h1 itemprop="name">
+                                <a class="p-name article-title"
+                                   href="/2023/07/09/makdown%E7%9A%84%E4%B9%A6%E5%86%99(%E4%BA%8C)/">makdown的书写(二)</a>
+                            </h1>
+
+
+                        </div>
+
+                        <div class="meta-info-bar">
+                            <div class="meta-info">
+                                <time class="dt-published" datetime="2023-07-08T21:00:34.000Z" itemprop="datePublished">
+                                    2023-07-09
+                                </time>
+                            </div>
+                            <div class="need-seperator meta-info">
+                                <div class="meta-cate-flex">
+
+                                    <a class="meta-cate-link"
+                                       href="/categories/md%E7%9A%84%E4%B9%A6%E5%86%99/">md的书写</a>
+
+                                </div>
+                                <!--tag-->
+                            </div>
+                            <div class="wordcount need-seperator meta-info">
+                                543 字<!--获取文章中的文字数量，字数-->
+                            </div>
+                        </div>
+
+
+                    </header>
+                    <div class="e-content article-entry" itemprop="articleBody">
+                        <!--如果没有excerpt则渲染内容前500字-->
+                        <div class="truncate-text">
+                            一、Markdown简介Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。
+                            Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。
+                            Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。
+                            Markdwon 常用的编辑器有typroa，markdown，作业部落等等
+                            Markdown 编写的文档后缀为 .md, .markdown。
+                            当前许多网站基本都支持了markdown语法，移植性和美观性都好过常见的富文本形式
+                            Markdown编写python语法
+                            -- coding:utf-8 --print("hello world")
+                            二、Markdown标题使用 # 号可表示 1-6 级标题，一级标题对应一个 # 号，二级标题对应两个 # 号，以此类推。
+                            # 一级标题
+
+                            ## 二级标题
+
+                            ### 三级标题
+
+                            #### 四级标题
+
+                            ##### 五级标题
+
+                            ###### 六级标题
+                            显示效果：
+                            一级标题二级标题三级标题四级标题五级标题六级标题三、Markdo...<!--内容预览-->
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <!--普通选项样式-->
+                <!--配置文件主题是否为detail详细，并且判断是否在页面中-->
+                <a class="right-panel  non-pic  " href="/2023/07/09/makdown%E7%9A%84%E4%B9%A6%E5%86%99(%E4%BA%8C)/"><!--构造文章url,生成一个有图片或无图片的选项卡，
+    在开头会判断该数据是否为一个数组，获取数组第一个元素作为背景图片的url-->
+                    <!--没有封面，直接插入箭头-->
+                    <i class="fa-solid fa-angle-right non-pic"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!--post.photos为一个数组，赋值给cover-->
+        <!--文章-->
+        <article id="post-makdown的书写(一)" class="h-entry article article-type-post" itemprop="blogPost" itemscope=""
+                 itemtype="https://schema.org/BlogPosting">
+
+            <div class="article-inner">
+                <div class="article-main">
+                    <header class="article-header">
+
+                        <div class="main-title-bar"><!--主页中，文章选项标题，girl布局等分3份-->
+                            <div class="main-title-dot"></div>
+
+
+                            <h1 itemprop="name">
+                                <a class="p-name article-title"
+                                   href="/2023/07/09/makdown%E7%9A%84%E4%B9%A6%E5%86%99(%E4%B8%80)/">makdown的书写(一)</a>
+                            </h1>
+
+
+                        </div>
+
+                        <div class="meta-info-bar">
+                            <div class="meta-info">
+                                <time class="dt-published" datetime="2023-07-08T20:05:13.000Z" itemprop="datePublished">
+                                    2023-07-09
+                                </time>
+                            </div>
+                            <div class="need-seperator meta-info">
+                                <div class="meta-cate-flex">
+
+                                    <a class="meta-cate-link"
+                                       href="/categories/md%E7%9A%84%E4%B9%A6%E5%86%99/">md的书写</a>
+
+                                </div>
+                                <!--tag-->
+                            </div>
+                            <div class="wordcount need-seperator meta-info">
+                                562 字<!--获取文章中的文字数量，字数-->
+                            </div>
+                        </div>
+
+
+                    </header>
+                    <div class="e-content article-entry" itemprop="articleBody">
+                        <!--如果没有excerpt则渲染内容前500字-->
+                        <div class="truncate-text">
+                            项目结构分为静态和Hexo两部分，静态文章用于部署
+                            用的命令hexo g 生成静态网页
+                            hexo d 部署git
+                            hexo s 启动本地服务器
+
+
+                            bilibili视频引入标签your_video_id 是b站的bv号或av号。
+                            {#{% bilicard your_video_id %}#}
+
+
+                            00:03:52
+
+
+                            张学友《天黑黑》翻唱
+
+
+                            1476
+
+
+                            0
+                            ...<!--内容预览-->
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <!--普通选项样式-->
+                <!--配置文件主题是否为detail详细，并且判断是否在页面中-->
+                <a class="right-panel  non-pic  " href="/2023/07/09/makdown%E7%9A%84%E4%B9%A6%E5%86%99(%E4%B8%80)/"><!--构造文章url,生成一个有图片或无图片的选项卡，
+    在开头会判断该数据是否为一个数组，获取数组第一个元素作为背景图片的url-->
+                    <!--没有封面，直接插入箭头-->
+                    <i class="fa-solid fa-angle-right non-pic"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+{% endcomment %}
+
+
+        <nav id="page-nav">
+            <!-- 在第二页时 page.prev_link 不知为何无法返回正确的链接 -->
+            {% if postList.has_previous %}
+                <a id="prev-btn" class="page-nav-btn " href=" /page/{{ postList.previous_page_number }}  ">
+                    <span class="material-symbols-rounded">navigate_before</span>{% comment %}上一页按钮{% endcomment %}
+                </a>
+            {% else %}
+                <a id="prev-btn" class="page-nav-btn disabled" href=" / ">
+                    <span class="material-symbols-rounded">navigate_before</span>{% comment %}上一页按钮{% endcomment %}
+                </a>
+            {% endif %}
+
+            <div id="num-bar">
+                {% for page in page_list %}
+                    {% if currentNum == page %}
+                        <span class="page-number current">{{ page }}</span>
+                    {% else %}
+                        <a class="page-number" href="/page/{{ page }}/">{{ page }}</a>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+
+
+            {% if postList.has_next %}
+                <a id="next-btn" class="page-nav-btn " href="/page/{{ postList.next_page_number }}">
+                    <span class="material-symbols-rounded">navigate_next</span>{% comment %}下一页按钮{% endcomment %}
+                </a>
+            {% else %}
+                <a id="next-btn" class="page-nav-btn disabled" href="/">
+                    <span class="material-symbols-rounded">navigate_next</span>{% comment %}下一页按钮{% endcomment %}
+                </a>
+            {% endif %}
+        </nav>
+
+
+    </div>
+{% endblock %}

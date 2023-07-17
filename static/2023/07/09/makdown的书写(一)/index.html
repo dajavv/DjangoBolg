@@ -1,0 +1,518 @@
+<!DOCTYPE html><html theme="dark" showbanner="true" hasbanner="true"><head><link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+
+
+<!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+
+<link rel="stylesheet" href="/source/midijs.css">
+
+<script src="https://www.midijs.net/lib/midi.js"></script>
+<!-- hexo injector head_begin end -->
+  <meta charset="utf-8">
+  
+
+  
+  <title>makdown的书写(一) | My Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="项目结构分为静态和Hexo两部分，静态文章用于部署 用的命令hexo g 生成静态网页 hexo d 部署git hexo s 启动本地服务器    bilibili视频引入标签your_video_id 是b站的bv号或av号。 &amp;#123;% bilicard your_video_id %&amp;#125;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="makdown的书写(一)">
+<meta property="og:url" content="https://dajavv.github.io/2023/07/09/makdown%E7%9A%84%E4%B9%A6%E5%86%99(%E4%B8%80)/">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="项目结构分为静态和Hexo两部分，静态文章用于部署 用的命令hexo g 生成静态网页 hexo d 部署git hexo s 启动本地服务器    bilibili视频引入标签your_video_id 是b站的bv号或av号。 &amp;#123;% bilicard your_video_id %&amp;#125;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-08T20:05:13.000Z">
+<meta property="article:modified_time" content="2023-07-12T19:16:06.940Z">
+<meta property="article:author" content="浅笑笑笑">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="shortcut icon" href="https://img1.8jppeg.com/images/64acb6103389e89b4a1690f8.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class=""><!--横幅-->
+  <img src="https://img1.8jppeg.com/images/64acb60c3389e89b4a168fd3.jpg" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class="">
+      <navbar id="navbar"><!--导航栏-->
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo"><!--导航栏左侧logo-->
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>My Blog </div><!--文字-->
+    </a>
+  </nav>
+  <nav id="main-nav"><!--导航栏-->
+    
+      <a class="main-nav-link" href="/">主页</a>
+    
+      <a class="main-nav-link" href="/archives">归档</a>
+    
+      <a class="main-nav-link" href="/about">关于</a>
+    
+  </nav>
+  <nav id="sub-nav"><!--导航栏图标-->
+    <a id="theme-btn" class="nav-icon">
+      <span class="material-symbols-rounded light-mode-icon">wb_sunny</span><!--白天-->
+      <span class="material-symbols-rounded dark-mode-icon">dark_mode</span><!--黑夜-->
+    </a>
+    
+    <a id="nav-search-btn" class="nav-icon" title="搜索"><!--搜索-->
+      <span class="material-symbols-rounded">search</span>
+    </a>
+    <div id="nav-menu-btn" class="nav-icon">
+      <span class="material-symbols-rounded">menu</span><!--菜单栏-->
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list"><!--下拉菜单-->
+    
+      <a class="nav-dropdown-link" href="/">主页</a>
+    
+      <a class="nav-dropdown-link" href="/archives">归档</a>
+    
+      <a class="nav-dropdown-link" href="/about">关于</a>
+    
+    
+    </div>
+</div>
+
+
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar"><!--侧边栏-->
+  
+    <div class="widget-wrap"><!--介绍栏-->
+  <div class="info-card">
+    <div class="avatar">
+      
+        <img src="https://img1.8jppeg.com/images/64acb6103389e89b4a1690f8.png"><!--头像-->
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info"><!--信息-->
+      <div class="username">浅笑笑笑 </div><!--用户名-->
+      <div class="dot"></div>
+      <div class="subtitle">轻舟已过万重山 </div><!--副标题，签名-->
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/59202265?spm_id_from=333.1007.0.0" title="bilibili"><i class="fa-brands fa-bilibili"></i></a><!--链接-->
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://store.steampowered.com" title="Steam"><i class="fa-brands fa-steam"></i></a><!--链接-->
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/dajavv" title="GitHub"><i class="fa-brands fa-github"></i></a><!--链接-->
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+<div class="widget-wrap"><!--公告-->
+    <div class="widget">
+        <h3 class="widget-title">公告</h3>
+        <div class="info"><!--信息-->
+            加载有点慢。多等等图标就加载出来了。。。不影响不影响<!--公告-->
+        </div>
+    </div>
+</div>
+
+
+  
+    
+  <div class="widget-wrap"><!--标签-->
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8E%9F%E7%A5%9E/" rel="tag">原神</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+<!--类别-->
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3><!--分类-->
+      <div class="category-box">
+            <a class="category-link" href="/categories/md%E7%9A%84%E4%B9%A6%E5%86%99/">
+                md的书写
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+  
+  <div class="sticky">
+    
+      
+  <div class="widget-wrap"><!--最近的帖子-->
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3><!--在languages文件夹中的语言-->
+      <ul>
+        
+          <li>
+            <a href="/2023/07/11/%E5%8E%9F%E7%A5%9E%E5%B0%8F%E5%8A%A9%E6%89%8B/">原神小助手 Genshin Assistant (CN/EN) | 自动战斗,秘境,领日常,半自动委托</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/11/%E8%83%A1%E6%A1%83%E5%B7%A5%E5%85%B7%E7%AE%B1/">胡桃工具箱</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/11/makdown%E7%9A%84%E4%B9%A6%E5%86%99(%E4%B8%89)/">makdown的书写(三)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/11/%E6%B5%8B%E8%AF%95/">测试</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/11/%E6%96%87%E7%AB%A0%E7%9A%84%E5%A4%B4%E9%83%A8%E5%B1%9E%E6%80%A7/">文章的头部属性</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3><!--归档-->
+      
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023
+          <div class="archive-count">12 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      <div class="widget-wrap">
+    <div class="widget">
+        <h3 class="widget-title">自定义组件</h3>
+        <div class="info"><!--信息-->
+        </div>
+    </div>
+</div>
+
+    
+  </div>
+</sidebar>
+
+    </div>
+    <div id="content-body">
+      
+<!--post.photos为一个数组，赋值给cover-->
+<!--文章-->
+<article id="post-makdown的书写(一)" class="h-entry article article-type-post" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
+  
+    
+
+  
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar"><!--主页中，文章选项标题，girl布局等分3份-->
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        makdown的书写(一)
+      </h1>
+    
+  
+</div>
+
+        <div class="meta-info-bar">
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-07-08T20:05:13.000Z" itemprop="datePublished">2023-07-09</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/md%E7%9A%84%E4%B9%A6%E5%86%99/">md的书写</a>
+   
+</div>
+<!--tag-->
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            562 字<!--获取文章中的文字数量，字数-->
+          </div>
+        </div>
+        
+
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css"><p>项目结构分为静态和Hexo两部分，静态文章用于部署</p>
+<h3 id="用的命令"><a href="#用的命令" class="headerlink" title="用的命令"></a>用的命令</h3><pre class="line-numbers language-angular2html" data-language="angular2html"><code class="language-angular2html">hexo g 生成静态网页
+hexo d 部署git
+hexo s 启动本地服务器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="bilibili视频引入标签"><a href="#bilibili视频引入标签" class="headerlink" title="bilibili视频引入标签"></a>bilibili视频引入标签</h3><p>your_video_id 是b站的bv号或av号。</p>
+<pre class="line-numbers language-angular2html" data-language="angular2html"><code class="language-angular2html">{% bilicard your_video_id %} <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<div class="bvideo"><a href="//www.bilibili.com/video/BV1we4y1Y7qW" target="_blank">
+        <div class="bvideo-box">
+            <div class="bvideo-cover">
+                <div class="cover-default"></div>
+                <div class="bvideo-cover-layer" style="background-image:url(https://pic1.xuehuaimg.com/proxy/http://i2.hdslb.com/bfs/archive/650c48a3a7ec12a695a0fc580d5ccdb283a978dd.jpg)">
+                    <i class="icon-video"></i>
+                </div>
+                <span class="duration">00:03:52</span>
+            </div>
+            <div class="bvideo-info">
+                <p class="title">张学友《天黑黑》翻唱</p>
+                <p class="card-status">
+                    <span class="play-num">
+                        <i class="fa fa-youtube-play"></i>
+                        <span>1476</span></span>
+                    <span>
+                        <i class="fa fa-list-alt"></i>
+                        <span>0</span></span></p>
+                <div class="partition">
+                    <label class="card-label">视频</label>
+                    <label class="up-label"></label>
+                    <label class="up-name">火星海盗Mic</label>
+                </div>
+                <div class="actions hide"></div>
+            </div>
+        </div>
+    </a></div>
+
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><pre class="line-numbers language-none"><code class="language-none">[我是内联样式的链接](https://www.google.com)
+
+[我是带有标题的内联样式链接](https://www.google.com "Google's Homepage")
+
+[是参考样式的链接][Arbitrary case-insensitive reference text]
+
+[我是存储库文件的相对引用](../blob/master/LICENSE)
+
+[可以将数字用于引用样式的链接定义][1]
+
+或者将其留空并使用 [这是链接]
+
+[arbitrary case-insensitive reference text]: https://hexo.io
+[1]: https://hexo.io/docs/
+[这是链接]: https://hexo.io/api/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><a target="_blank" rel="noopener" href="https://www.google.com/">我是内联样式的链接</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.google.com/" title="Google's Homepage">我是带有标题的内联样式链接</a></p>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/">是参考样式的链接</a></p>
+<p><a href="../blob/master/LICENSE">我是存储库文件的相对引用</a></p>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/docs/">可以将数字用于引用样式的链接定义</a></p>
+<p>或者将其留空并使用 <a target="_blank" rel="noopener" href="https://hexo.io/api/">这是链接</a></p>
+<h3 id="水平线"><a href="#水平线" class="headerlink" title="水平线"></a>水平线</h3><hr>
+<p>虚线</p>
+<hr>
+<p>星号</p>
+<hr>
+<p>下划线</p>
+<h3 id="分隔符"><a href="#分隔符" class="headerlink" title="分隔符"></a>分隔符</h3><table>
+<thead>
+<tr>
+<th>Markdown</th>
+<th>Less</th>
+<th>Pretty</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>Still</em></td>
+<td><code>renders</code></td>
+<td><strong>nicely</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><pre class="line-numbers language-angular2html" data-language="angular2html"><code class="language-angular2html">|                |ASCII                          |HTML                         |
+|----------------|-------------------------------|-----------------------------|
+|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
+|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
+|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>ASCII</th>
+<th>HTML</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Single backticks</td>
+<td><code>'Isn't this fun?'</code></td>
+<td>‘Isn’t this fun?’</td>
+</tr>
+<tr>
+<td>Quotes</td>
+<td><code>"Isn't this fun?"</code></td>
+<td>“Isn’t this fun?”</td>
+</tr>
+<tr>
+<td>Dashes</td>
+<td><code>-- is en-dash, --- is em-dash</code></td>
+<td>– is en-dash, — is em-dash</td>
+</tr>
+</tbody></table>
+<h3 id="标签显示"><a href="#标签显示" class="headerlink" title="标签显示"></a>标签显示</h3><pre class="line-numbers language-angular2html" data-language="angular2html"><code class="language-angular2html">&lt;p&gt;To reboot your computer, press &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;alt&lt;/kbd&gt;+&lt;kbd&gt;del&lt;/kbd&gt;.&lt;/p&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>To reboot your computer, press <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>del</kbd>.</p>
+
+<pre class="line-numbers language-none"><code class="language-none">&lt;dl&gt;
+    &lt;dt&gt;定义列表&lt;/dt&gt;
+    &lt;dd&gt;小一号的字，这是小一号的字&lt;/dd&gt;
+    213
+    &lt;dt&gt;Markdown in HTML&lt;/dt&gt;
+    &lt;dd&gt;Does *not* work **very** well. Use HTML &lt;em&gt;tags&lt;/em&gt;.&lt;/dd&gt;
+&lt;/dl&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<dl>
+    <dt>定义列表</dt>
+    <dd>小一号的字，这是小一号的字</dd>
+    213
+    <dt>Markdown in HTML</dt>
+    <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>Markdown in HTML</dt>
+  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
+### 触碰显示提示框
+<pre class="line-numbers language-angular2html" data-language="angular2html"><code class="language-angular2html">{% hint 'body_text' 'hint_text_1st_line' 'hint_text_2nd_line' ... %}
+{% hint '触碰显示' '第一行提示1' '第二行提示2' %}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<span class="hint--info hint--rounded hint--top" data-hint="第一行提示1
+第二行提示2" ontouchstart="">触碰显示提示</span>正常文字
+
+<!--开启detail详细模式,并且没有设置摘要属性，显示全部内容-->
+        
+      </div>
+
+      
+    </div>
+
+    
+  </div>
+  
+    
+<nav id="article-nav"><!--文章底部的左右跳转导航-->
+  <a class="article-nav-btn left " href="/2023/07/09/makdown%E7%9A%84%E4%B9%A6%E5%86%99(%E4%BA%8C)/" title="makdown的书写(二)">
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        makdown的书写(二)
+      
+    </p>
+  </a>
+  <a class="article-nav-btn right " href="/2023/07/09/hello-world/" title="Hello World">
+
+    <p class="title-text">
+      
+        Hello World
+      
+    </p>
+    <i class="fa-solid fa-angle-right"></i><!--向右-->
+  </a>
+</nav>
+
+<!--导入组件-->
+  
+</article>
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer"><!--底部栏-->
+    
+    <div id="footer-info" class="inner">
+        
+        © 2023-2023 by 浅笑笑笑<br>
+        <!--© 2023-2023 by 浅笑笑笑
+        bilibili|GitHub|GitHub-->
+        <a href="https://space.bilibili.com/59202265?spm_id_from=333.1007.0.0" target="_blank">Bilibili</a>|<a href="#" target="_blank">Steam</a>|<a href="https://github.com/dajavv" target="_blank">GitHub</a><br>
+        <!--        Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a-->
+        <!--                href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>-->
+
+    </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper"><!--回到顶部按键-->
+    <button id="back-to-top-btn" class="back-to-top-btn" onclick="topFunction()">
+        <span class="material-symbols-rounded">keyboard_arrow_up</span>
+    </button>
+</div>
+
+
+
+  </div>
+  
+
+
+<script src="/js/bundle.js"></script><script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");/*下拉按键*/
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {/*菜单栏点击*/
+    dropdownEle.classList.toggle("hidden");
+  }
+;
+
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.style.opacity = 1;
+        } else {
+            btn.style.opacity = 0;
+        }
+    }
+    window.onscroll = function() {//滚动就会触发
+        scrollFunction();
+    }
+</script></body></html>

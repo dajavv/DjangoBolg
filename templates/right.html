@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="sidebar-wrapper">
+    <sidebar id="sidebar"><!--侧边栏-->
+
+        <div class="widget-wrap"><!--介绍栏-->
+            <div class="info-card">
+                <div class="avatar">
+
+                    <img src="https://img1.8jppeg.com/images/64acb6103389e89b4a1690f8.png"><!--头像-->
+
+                    <div class="img-dim"></div>
+                </div>
+                <div class="info"><!--信息-->
+                    <div class="username">浅笑笑笑</div><!--用户名-->
+                    <div class="dot"></div>
+                    <div class="subtitle">轻舟已过万重山</div><!--副标题，签名-->
+                    <div class="link-list">
+
+                        <a class="link-btn" target="_blank" rel="noopener"
+                           href="https://space.bilibili.com/59202265?spm_id_from=333.1007.0.0" title="bilibili"><i
+                                class="fa-brands fa-bilibili"></i></a><!--链接-->
+
+                        <a class="link-btn" target="_blank" rel="noopener" href="https://store.steampowered.com"
+                           title="Steam"><i class="fa-brands fa-steam"></i></a><!--链接-->
+
+                        <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/dajavv"
+                           title="GitHub"><i class="fa-brands fa-github"></i></a><!--链接-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="widget-wrap"><!--公告-->
+            <div class="widget">
+                <h3 class="widget-title">公告</h3>
+                <div class="info"><!--信息-->
+{#                    {{ r_announcement_post }}#}
+                    加载有点慢。多等等图标就加载出来了。。。不影响不影响<!--公告-->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="widget-wrap"><!--标签-->
+            <div class="widget">
+                <h3 class="widget-title">标签</h3>
+                <ul class="widget-tag-list" itemprop="keywords">
+                    {% for rt in r_tag_post %}
+                        <li class="widget-tag-list-item">
+                            <a class="widget-tag-list-link" href="/" rel="tag">{{ rt.tag__tname }}</a>
+                        </li>
+                    {% endfor %}
+                    {% comment %}                    <li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/python/" rel="tag">python</a>
+                    </li>
+                    <li class="widget-tag-list-item"><a class="widget-tag-list-link"
+                                                        href="/tags/%E5%8E%9F%E7%A5%9E/" rel="tag">原神</a></li>
+                    <li class="widget-tag-list-item"><a class="widget-tag-list-link"
+                                                        href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li>{% endcomment %}
+                </ul>
+            </div>
+        </div>
+
+
+        <!--类别-->
+        <div class="widget-wrap">
+            <div class="widget">
+                <h3 class="widget-title">分类</h3><!--分类-->
+                <div class="category-box">
+                    {% for rc in r_cate_post %}
+                        <a class="category-link" href="/">
+                            {{ rc.category__cname }}
+                            <div class="category-count">{{ rc.c }}</div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="sticky">
+
+
+            <div class="widget-wrap"><!--最近的帖子-->
+                <div class="widget">
+                    <h3 class="widget-title">最新文章</h3><!--在languages文件夹中的语言-->
+                    <ul>
+                        {% for rr in r_recent_post %}
+                            <li>
+                                <a class="category-link" href="/post/{{ rr.od }}">{{ rr.title }}</a>
+                            </li>
+                        {% endfor %}
+
+
+
+                        {% comment %}                        <li>
+                            <a href="/2023/07/11/%E8%83%A1%E6%A1%83%E5%B7%A5%E5%85%B7%E7%AE%B1/">胡桃工具箱</a>
+                        </li>
+
+                        <li>
+                            <a href="/2023/07/11/makdown%E7%9A%84%E4%B9%A6%E5%86%99(%E4%B8%89)/">makdown的书写(三)</a>
+                        </li>
+
+                        <li>
+                            <a href="/2023/07/11/%E6%B5%8B%E8%AF%95/">测试</a>
+                        </li>
+
+                        <li>
+                            <a href="/2023/07/11/%E6%96%87%E7%AB%A0%E7%9A%84%E5%A4%B4%E9%83%A8%E5%B1%9E%E6%80%A7/">文章的头部属性</a>
+                        </li>{% endcomment %}
+
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="widget-wrap">
+                <div class="widget">
+                    <h3 class="widget-title">归档</h3><!--归档-->
+
+
+                    <a class="archive-link" href="/archives/2023/07 ">
+                        七月 2023
+                        <div class="archive-count">12</div>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="widget-wrap">
+                <div class="widget">
+                    <h3 class="widget-title">自定义组件</h3>
+                    <div class="info"><!--信息-->
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </sidebar>
+
+</div>
+</body>
+</html>
