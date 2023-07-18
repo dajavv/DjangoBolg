@@ -47,15 +47,20 @@ class Post(models.Model):
         verbose_name_plural = u'帖子'
 
 
-# class AdminUser(models.Model):
-#     aname = models.CharField(max_length=20, unique=True, verbose_name='名字')
-#     avatar = models.CharField(max_length=200, unique=True, verbose_name='头像')
-#     signature = models.CharField(max_length=100, unique=True, verbose_name='签名')
-#     announcement = models.CharField(max_length=200, unique=True, verbose_name='公告')
-#
-#     def __unicode__(self):
-#         return u'<AdminUser:%s>' % self.aname
-#
-#     class Meta:
-#         db_table = 't_AdminUser'
-#         verbose_name_plural = u'管理用户信息'
+class AdminUser(models.Model):
+    aname = models.CharField(max_length=20, unique=True, verbose_name='名字')
+    avatar = models.CharField(max_length=200, unique=True, verbose_name='头像')
+    signature = models.CharField(max_length=100, unique=True, verbose_name='签名')
+    announcement = models.CharField(max_length=200, unique=True, verbose_name='公告')
+    steam = models.CharField(max_length=200, unique=True, verbose_name='steam链接')
+    bilibili = models.CharField(max_length=200, unique=True, verbose_name='bilibili链接')
+    github = models.CharField(max_length=200, unique=True, verbose_name='github链接')
+    about = models.CharField(max_length=1000, null=True, blank=True, verbose_name=u'关于')
+    banner = models.CharField(max_length=200, unique=True, verbose_name='横幅')
+
+    def __unicode__(self):
+        return u'<AdminUser:%s>' % self.aname
+
+    class Meta:
+        db_table = 't_AdminUser'
+        verbose_name_plural = u'管理用户信息'

@@ -12,14 +12,14 @@
             <div class="info-card">
                 <div class="avatar">
 
-                    <img src="https://img1.8jppeg.com/images/64acb6103389e89b4a1690f8.png"><!--头像-->
+                    <img src="{{ r_admin_post.avatar }}"><!--头像-->
 
                     <div class="img-dim"></div>
                 </div>
                 <div class="info"><!--信息-->
-                    <div class="username">浅笑笑笑</div><!--用户名-->
+                    <div class="username">{{ r_admin_post.aname }}</div><!--用户名-->
                     <div class="dot"></div>
-                    <div class="subtitle">轻舟已过万重山</div><!--副标题，签名-->
+                    <div class="subtitle">{{ r_admin_post.signature }}</div><!--副标题，签名-->
                     <div class="link-list">
 
                         <a class="link-btn" target="_blank" rel="noopener"
@@ -42,8 +42,9 @@
             <div class="widget">
                 <h3 class="widget-title">公告</h3>
                 <div class="info"><!--信息-->
-{#                    {{ r_announcement_post }}#}
-                    加载有点慢。多等等图标就加载出来了。。。不影响不影响<!--公告-->
+                    {#                    {{ r_announcement_post }}#}
+                    {{ r_admin_post.announcement }}
+                    <!--公告-->
                 </div>
             </div>
         </div>
@@ -55,7 +56,8 @@
                 <ul class="widget-tag-list" itemprop="keywords">
                     {% for rt in r_tag_post %}
                         <li class="widget-tag-list-item">
-                            <a class="widget-tag-list-link" href="/" rel="tag">{{ rt.tag__tname }}</a>
+                            <a class="widget-tag-list-link" href="/tags/{{ rt.tag__tname }}"
+                               rel="tag">{{ rt.tag__tname }}</a>
                         </li>
                     {% endfor %}
                     {% comment %}                    <li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/python/" rel="tag">python</a>
@@ -75,7 +77,7 @@
                 <h3 class="widget-title">分类</h3><!--分类-->
                 <div class="category-box">
                     {% for rc in r_cate_post %}
-                        <a class="category-link" href="/">
+                        <a class="category-link" href="/category/{{ rc.category }}">
                             {{ rc.category__cname }}
                             <div class="category-count">{{ rc.c }}</div>
                         </a>
@@ -94,7 +96,7 @@
                     <ul>
                         {% for rr in r_recent_post %}
                             <li>
-                                <a class="category-link" href="/post/{{ rr.od }}">{{ rr.title }}</a>
+                                <a class="category-link" href="/post/{{ rr.id }}">{{ rr.title }}</a>
                             </li>
                         {% endfor %}
 
@@ -124,24 +126,23 @@
             <div class="widget-wrap">
                 <div class="widget">
                     <h3 class="widget-title">归档</h3><!--归档-->
-
-
-                    <a class="archive-link" href="/archives/2023/07 ">
-                        七月 2023
-                        <div class="archive-count">12</div>
-                    </a>
-
+                    {% for rf in r_file_post %}
+                        <a class="archive-link" href="/archives/">
+                            {{ rf.0|date:'Y' }}年{{ rf.0|date:'m' }}月
+                            <div class="archive-count">{{ rf.1 }}</div>
+                        </a>
+                    {% endfor %}
                 </div>
             </div>
 
 
-            <div class="widget-wrap">
+            {% comment %}            <div class="widget-wrap">
                 <div class="widget">
                     <h3 class="widget-title">自定义组件</h3>
                     <div class="info"><!--信息-->
                     </div>
                 </div>
-            </div>
+            </div>{% endcomment %}
 
 
         </div>

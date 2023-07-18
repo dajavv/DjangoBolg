@@ -37,17 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'post',
     'ckeditor',  # 配置
-    'ckeditor_uploader'
+    'ckeditor_uploader',
+    # 'haystack',
 ]
 
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+MIDDLEWARE = [  # 中间件
+    'django.middleware.security.SecurityMiddleware',  # 必须第一个
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',  # scrf跨域安全
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',  # 必需最后一个
 ]
 
 ROOT_URLCONF = 'djangoProject.urls'
@@ -77,8 +78,9 @@ WSGI_APPLICATION = 'djangoProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',  # 数据库引擎
+        # 默认数据库SQLite，SQLite 是一个轻量级的关系型数据库管理系统，它以文件形式存储数据库，并且不需要独立的数据库服务器进程。这使得 SQLite 在开发和测试阶段非常方便，因为它不需要额外的数据库服务器安装和配置。
+        'NAME': BASE_DIR / 'db.sqlite3',  # 路径
     }
 }
 
@@ -128,7 +130,19 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'  # 配置
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 CKEDITOR_UPLOAD_PATH = 'upload/ '
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# 指定生成的索引路径
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    },
+}
+# 实时生成索引文件
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimesignalProcessor'
+

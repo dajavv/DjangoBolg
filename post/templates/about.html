@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}关于{% endblock %}
+{% block main %}
+    <div id="content-body">
+        <div class="article-main">
+            <div class="e-content article-entry" itemprop="articleBody">{% comment %}内容文字{% endcomment %}
+                {% comment %}                                        <link rel="stylesheet" type="text/css"
+                              href="https://cdn.jsdelivr.net/npm/hexo-tag-hint@0.3.1/dist/hexo-tag-hint.min.css">
+                        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2>
+                        <ul>
+                            <li>
+                                基于Django重构的博客
+                            </li>
+                        </ul>{% endcomment %}
+                <h2 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h2>
+                {{ post_obj.about }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

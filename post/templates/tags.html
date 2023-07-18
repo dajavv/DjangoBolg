@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    标签页面
+{% endblock %}
+
+{% block main %}
+    <div class="archive-main-card"><!--标签页面-->
+        <div class="archive-top">
+            <div class="main-title-bar">
+                <div class="main-title-dot"></div>
+                <h1 class="article-title">{{ tag }}</h1>
+            </div>
+        </div>
+
+
+        <div class="year-line">
+            <div class="year-num">日期</div>
+            <div class="dot-wrapper">
+                <div class="dot"></div>
+            </div>
+        </div>
+        {% for cp in c_post %}
+
+            <a class="archive-article-link" href="/post/{{ cp.id }}">
+                <div class="date">{{ cp.created|date:'Y-m' }}</div>
+                <div class="line">
+                    <div class="dot"></div>
+                </div>
+                <div class="title">
+                    <div class="title-inner">
+
+                        {{ cp.title }}
+
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+

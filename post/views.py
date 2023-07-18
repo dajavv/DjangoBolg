@@ -1,11 +1,12 @@
 import math
 
 from django.core.paginator import Paginator
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 from django.views import View  # 导入
 
-from post.models import Post
+from post.models import *
 
 
 # Create your views here.
@@ -33,7 +34,37 @@ class IndexViex(View):
 
 
 class DetailViex(View):
-    def get(self, request, postid):
+    def get(self, request, postid):  # 文章内容
         postid = int(postid)
         post_obj = Post.objects.get(id=postid)  # 条件查询id
-        return render(request,'detail.html',{'post_obj':post_obj})
+        return render(request, 'detail.html', {'post_obj': post_obj})
+
+
+def getPostByCid(request, category):
+    categoryid = int(category)
+    c_post = Post.objects.filter(category_id=categoryid)  # 通过类别id查询类别下的文章
+
+    # print(c_post)
+    return render(request, 'postlist.html', {'c_post': c_post})
+
+
+def getPostArchives(request):
+    c_post = Post.objects.all()  # 查询全部
+
+    return render(request, 'archives.html', {'c_post': c_post})
+
+
+def getPostTags(request, tag):
+    c_post = Post.objects.filter(tag__tname=tag)  # 根据标签名查询
+
+    return render(request, 'tags.html', {'tag': tag, 'c_post': c_post})
+
+
+def About(request):
+    post_obj = AdminUser.objects.all()[0]
+    return render(request, 'about.html', {'post_obj': post_obj})
+
+
+
+
+

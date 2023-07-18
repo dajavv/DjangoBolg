@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    分类页面
+{% endblock %}
+
+{% block main %}
+    <div class="archive-main-card"><!--归档页面-->
+        <div class="archive-top">
+            <div class="main-title-bar">
+                <div class="main-title-dot"></div>
+                <h1 class="article-title">分类</h1>
+            </div>
+        </div>
+
+
+        <div class="year-line">
+            <div class="year-num">日期</div>
+            <div class="dot-wrapper">
+                <div class="dot"></div>
+            </div>
+        </div>
+        {% for cp in c_post %}
+
+            <a class="archive-article-link" href="/post/{{ cp.id }}">
+                <div class="date">{{ cp.created|date:'Y-m' }}</div>
+                <div class="line">
+                    <div class="dot"></div>
+                </div>
+                <div class="title">
+                    <div class="title-inner">
+
+                        {{ cp.title }}
+
+                    </div>
+                </div>
+                {#                <div class="tags">#}
+                {#                    #原神 #转载 #python #github#}
+                {#                </div>#}
+            </a>
+        {% endfor %}
+
+        {% comment %}        <a class="archive-article-link" href="/2023/07/11/%E8%83%A1%E6%A1%83%E5%B7%A5%E5%85%B7%E7%AE%B1/"
+           title="胡桃工具箱">
+            <div class="date">07-11</div>
+            <div class="line">
+                <div class="dot"></div>
+            </div>
+            <div class="title">
+                <div class="title-inner">
+
+                    胡桃工具箱
+
+                </div>
+            </div>
+            <div class="tags">
+                #原神 #转载 #python #github
+            </div>
+        </a>{% endcomment %}
+
+
+        {% comment %}       <a class="archive-article-link" href="/2023/07/11/makdown%E7%9A%84%E4%B9%A6%E5%86%99(%E4%B8%89)/"
+           title="makdown的书写(三)">
+            <div class="date">07-11</div>
+            <div class="line">
+                <div class="dot"></div>
+            </div>
+            <div class="title">
+                <div class="title-inner">
+
+                    makdown的书写(三)
+
+                </div>
+            </div>
+            <div class="tags">
+
+            </div>
+        </a>
+
+
+        <a class="archive-article-link" href="/2023/07/11/%E6%B5%8B%E8%AF%95/" title="测试">
+            <div class="date">07-11</div>
+            <div class="line">
+                <div class="dot"></div>
+            </div>
+            <div class="title">
+                <div class="title-inner">
+
+                    测试
+
+                </div>
+            </div>
+            <div class="tags">
+
+            </div>
+        </a>
+
+
+        <a class="archive-article-link"
+           href="/2023/07/11/%E6%96%87%E7%AB%A0%E7%9A%84%E5%A4%B4%E9%83%A8%E5%B1%9E%E6%80%A7/" title="文章的头部属性">
+            <div class="date">07-11</div>
+            <div class="line">
+                <div class="dot"></div>
+            </div>
+            <div class="title">
+                <div class="title-inner">
+
+                    文章的头部属性
+
+                </div>
+            </div>
+            <div class="tags">
+
+            </div>
+        </a>
+
+
+        <a class="archive-article-link" href="/2023/07/11/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/" title="项目结构">
+            <div class="date">07-11</div>
+            <div class="line">
+                <div class="dot"></div>
+            </div>
+            <div class="title">
+                <div class="title-inner">
+
+                    项目结构
+
+                </div>
+            </div>
+            <div class="tags">
+
+            </div>
+        </a>
+
+
+        <a class="archive-article-link"
+           href="/2023/07/11/%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0%E4%B8%8E%E7%95%8C%E9%9D%A2/" title="创建文章与界面">
+            <div class="date">07-11</div>
+            <div class="line">
+                <div class="dot"></div>
+            </div>
+            <div class="title">
+                <div class="title-inner">
+
+                    创建文章与界面
+
+                </div>
+            </div>
+            <div class="tags">
+
+            </div>
+        </a>
+
+
+        <a class="archive-article-link" href="/2023/07/09/%E4%BB%80%E4%B9%88%E6%98%AF.md%E6%96%87%E4%BB%B6/"
+           title="什么是.md文件">
+            <div class="date">07-09</div>
+            <div class="line">
+                <div class="dot"></div>
+            </div>
+            <div class="title">
+                <div class="title-inner">
+
+                    什么是.md文件
+
+                </div>
+            </div>
+            <div class="tags">
+
+            </div>
+        </a>
+
+
+        <a class="archive-article-link" href="/2023/07/09/makdown%E7%9A%84%E4%B9%A6%E5%86%99(%E4%BA%8C)/"
+           title="makdown的书写(二)">
+            <div class="date">07-09</div>
+            <div class="line">
+                <div class="dot"></div>
+            </div>
+            <div class="title">
+                <div class="title-inner">
+
+                    makdown的书写(二)
+
+                </div>
+            </div>
+            <div class="tags">
+
+            </div>
+        </a>
+
+
+        <a class="archive-article-link" href="/2023/07/09/makdown%E7%9A%84%E4%B9%A6%E5%86%99(%E4%B8%80)/"
+           title="makdown的书写(一)">
+            <div class="date">07-09</div>
+            <div class="line">
+                <div class="dot"></div>
+            </div>
+            <div class="title">
+                <div class="title-inner">
+
+                    makdown的书写(一)
+
+                </div>
+            </div>
+            <div class="tags">
+
+            </div>
+        </a>{% endcomment %}
+
+    </div>
+
+{% endblock %}
+
+
